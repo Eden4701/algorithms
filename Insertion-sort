@@ -8,13 +8,14 @@ import static net.mindview.util.Print.*;
 	 void insert(int []a) {
 	     for(int j=1;j<a.length;j++) {
 		      int tmp=a[j];
-		      int i=j-1;
-		      while(i>=0&&a[i]>a[i+1]) {
-			       a[i+1]=a[i];
+		      int i=j;
+		      while(i>0&&a[i-1]>tmp) {
+			       a[i]=a[i-1];
 			       i--;
-			        a[i+1]=tmp;
+			       
 			        
 	 }
+		      a[i]=tmp;
 	 }
  }
 	 
