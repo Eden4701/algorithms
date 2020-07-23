@@ -1,0 +1,57 @@
+package test;
+import static net.mindview.util.Print.*;
+//import static net.mindview.util.Range.*;
+import java.util.*;
+ import java.util.Arrays;
+
+ public class one   {
+
+		  int[] mergeSort(int []a) {
+			   return sort(a,0,a.length-1);
+
+		     }
+		   int [] sort(int []a,int m,int n) {
+			   if (m<n)
+			   {
+				   int mid=(m+n)/2;
+				   sort(a,m,mid);
+				   sort(a,mid+1,n);
+				   merge(a,mid,m,n);
+				   
+			   }
+			   return a;
+		   }
+		void merge(int[]a,int mid,int m,int n) {
+			 int[] aa = new int[n-m+1];
+	         int i=m;
+	         int j=mid+1;
+	         int k=0;
+	         while(j<=n && i<=mid)
+	         {
+	             if(a[i]>a[j]) {
+	             aa[k]=a[j];
+	             k++;
+	             j++;
+	             }
+	             else {
+	             aa[k]=a[i];k++;i++;
+	             }
+	         }
+	         while(j<=n) {
+	         aa[k]=a[j];k++;j++;}
+	         while(i<=mid) {
+	         aa[k]=a[i];k++;i++;}
+
+	         for(k=0,i=m;i<n+1;k++,i++)
+	         a[i]=aa[k];
+
+		}
+	 public static void main (String []args){
+		    one q=new one();
+		    int arr[]= {1,4,23,14,2,3,6,7,8};
+		    q.mergeSort(arr);
+		    print(Arrays.toString(arr));
+		   
+		}
+	
+ }
